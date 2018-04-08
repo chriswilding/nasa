@@ -1,0 +1,8 @@
+{
+  "name": "nasa",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:ChrisWilding/nasa.git",
+  "author": "Chris Wilding <hello@chriswilding.co.uk>",
+  "license": "Apache-2.0"
+}
