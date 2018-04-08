@@ -25,3 +25,18 @@ $ webpack-dev-server
 Project is running at http://localhost:8080/
 ...
 ```
+
+# Docker
+
+### Prerequisites
+
+1. [Docker](https://www.docker.com/community-edition)
+
+### Usage
+
+```sh
+$ docker build -t nasa .
+$ docker run --name nasa -d -p 8080:80 nasa
+```
+
+Project is running at http://localhost:8080/
