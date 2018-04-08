@@ -1,5 +1,20 @@
 import config from "./config";
 
+const transformItem = item => {
+  const data = item.data[0];
+  const newItem = {
+    id: data.nasa_id,
+    description: data.description,
+    title: data.title,
+    type: data.media_type
+  };
+
+  if (newItem.type === "image") {
+    newItem.thumb = item.links[0].href;
+  }
+  return newItem;
+};
+
 export default {
   search({ audio, image, query }) {
     const mediaType = [];
@@ -17,6 +32,9 @@ export default {
 
     const encodedURI = encodeURI(uri);
 
-    return fetch(encodedURI);
+    return fetch(encodedURI)
+      .then(result => result.json())
+      .then(({ collection: { items } }) => items)
+      .then(items => items.map(transformItem));
   }
 };
