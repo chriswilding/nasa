@@ -56,7 +56,7 @@ function getAssetImageById(id) {
 
   return fetch(encodedURI)
     .then(result => result.json())
-    .then(({ collection: { items } }) => items[0].href);
+    .then(({ collection: { items } }) => items[1].href);
 }
 
 function getAssetById(id) {
