@@ -41,6 +41,11 @@ describe("APIClient", () => {
       );
     }));
 
+  it("requests assets by id", () =>
+    APIClient.search({ id: "PIA03606" }).then(() => {
+      expect(global.fetch).toBeCalledWith("https://images-api.nasa.gov/search?nasa_id=PIA03606");
+    }));
+
   describe("transformed data", () => {
     it("returns a transformed response for image data", () =>
       APIClient.search({ audio: false, image: true, query: "crab nebula" }).then(data => {

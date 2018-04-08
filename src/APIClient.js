@@ -1,5 +1,10 @@
 import config from "./config";
 
+const toQueryString = object =>
+  Object.keys(object)
+    .map(key => `${key}=${object[key]}`)
+    .join("&");
+
 const transformItem = item => {
   const data = item.data[0];
   const newItem = {
@@ -16,19 +21,26 @@ const transformItem = item => {
 };
 
 export default {
-  search({ audio, image, query }) {
-    const mediaType = [];
-    if (audio) {
-      mediaType.push("audio");
-    }
-    if (image) {
-      mediaType.push("image");
+  search({ audio, id, image, query }) {
+    const queryObject = {};
+
+    if (query) {
+      queryObject.q = query;
     }
 
-    let uri = `${config.BASE_URL}/search?q=${query}`;
-    if (mediaType.length > 0) {
-      uri += `&media_type=${mediaType.join(",")}`;
+    if (audio) {
+      queryObject.media_type = "audio";
     }
+
+    if (image) {
+      queryObject.media_type = audio ? `${queryObject.media_type},image` : "image";
+    }
+
+    if (id) {
+      queryObject.nasa_id = id;
+    }
+
+    const uri = `${config.BASE_URL}/search?${toQueryString(queryObject)}`;
 
     const encodedURI = encodeURI(uri);
 
