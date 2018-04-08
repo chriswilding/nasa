@@ -2,6 +2,9 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 
 export default {
+  devServer: {
+    historyApiFallback: true
+  },
   entry: "./src/index.jsx",
   module: {
     rules: [
