@@ -4,8 +4,8 @@ import { shallow } from "enzyme";
 import Page from "../../../src/components/search/Page";
 
 describe("Search Page", () => {
-  it("displays search", () => {
+  it("renders a Search compnent", () => {
     const component = shallow(<Page />);
-    expect(component.text()).toEqual("Search");
+    expect(component.find("Search").exists()).toBeTruthy();
   });
 });
