@@ -20,33 +20,53 @@ const transformItem = item => {
   return newItem;
 };
 
-export default {
-  search({ audio, id, image, query }) {
-    const queryObject = {};
+function search({ audio, id, image, query }) {
+  const queryObject = {};
 
-    if (query) {
-      queryObject.q = query;
-    }
-
-    if (audio) {
-      queryObject.media_type = "audio";
-    }
-
-    if (image) {
-      queryObject.media_type = audio ? `${queryObject.media_type},image` : "image";
-    }
-
-    if (id) {
-      queryObject.nasa_id = id;
-    }
-
-    const uri = `${config.BASE_URL}/search?${toQueryString(queryObject)}`;
-
-    const encodedURI = encodeURI(uri);
-
-    return fetch(encodedURI)
-      .then(result => result.json())
-      .then(({ collection: { items } }) => items)
-      .then(items => items.map(transformItem));
+  if (query) {
+    queryObject.q = query;
   }
+
+  if (audio) {
+    queryObject.media_type = "audio";
+  }
+
+  if (image) {
+    queryObject.media_type = audio ? `${queryObject.media_type},image` : "image";
+  }
+
+  if (id) {
+    queryObject.nasa_id = id;
+  }
+
+  const uri = `${config.BASE_URL}/search?${toQueryString(queryObject)}`;
+
+  const encodedURI = encodeURI(uri);
+
+  return fetch(encodedURI)
+    .then(result => result.json())
+    .then(({ collection: { items } }) => items)
+    .then(items => items.map(transformItem));
+}
+
+function getAssetImageById(id) {
+  const uri = `${config.BASE_URL}/asset/${id}`;
+
+  const encodedURI = encodeURI(uri);
+
+  return fetch(encodedURI)
+    .then(result => result.json())
+    .then(({ collection: { items } }) => items[0].href);
+}
+
+function getAssetById(id) {
+  return Promise.all([getAssetImageById(id), search({ id })]).then(([href, items]) => ({
+    ...items[0],
+    href
+  }));
+}
+
+export default {
+  getAssetById,
+  search
 };
