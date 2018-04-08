@@ -4,8 +4,8 @@ import { shallow } from "enzyme";
 import App from "../../src/components/App";
 
 describe("App", () => {
-  it("displays hello world", () => {
+  it("renders a router", () => {
     const component = shallow(<App />);
-    expect(component.text()).toEqual("Hello World!");
+    expect(component.find("BrowserRouter").exists()).toBeTruthy();
   });
 });
