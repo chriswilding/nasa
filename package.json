@@ -39,8 +39,7 @@
     "precommit": "lint-staged",
     "prettier": "prettier --list-different .babelrc .eslintrc webpack.config.babel.js \"{src,test}/**/*.{js,json,jsx}\"",
     "start": "webpack-dev-server --mode development",
-    "test": "jest",
-    "test:ci": "yarn lint && yarn prettier && yarn test",
+    "test": "yarn lint && yarn prettier && jest",
     "test:coverage": "yarn test --coverage",
     "test:watch": "yarn test --watch"
   },
