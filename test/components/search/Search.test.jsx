@@ -27,7 +27,7 @@ describe("Search component", () => {
     };
 
     const component = shallow(<Search search={search} />);
-    component.simulate("submit");
+    component.simulate("submit", { preventDefault: () => {} });
   });
 
   it("updates the search box when the input is changed", () => {

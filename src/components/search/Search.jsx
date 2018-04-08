@@ -24,7 +24,8 @@ class Search extends Component {
     });
   }
 
-  handleOnSubmit() {
+  handleOnSubmit(event) {
+    event.preventDefault();
     this.props.search(this.state);
   }
 
