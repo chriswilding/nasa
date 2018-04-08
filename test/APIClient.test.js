@@ -33,7 +33,7 @@ describe("APIClient", () => {
           thumb: "https://images-assets.nasa.gov/image/PIA03606/PIA03606~thumb.jpg",
           title: "Most Detailed Image of the Crab Nebula",
           type: "image",
-          href: "http://images-assets.nasa.gov/image/PIA03606/PIA03606~orig.jpg"
+          href: "http://images-assets.nasa.gov/image/PIA03606/PIA03606~large.jpg"
         });
       }));
   });

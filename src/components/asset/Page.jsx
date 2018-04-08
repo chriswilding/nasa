@@ -1,9 +1,45 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Component } from "react";
+import APIClient from "../../APIClient";
+import Image from "./Image";
 
-const Asset = ({ match: { params: { id } } }) => <p>Asset {id}</p>;
+const typeToComponent = {
+  image: Image
+};
 
-Asset.propTypes = {
+class Page extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: true
+    };
+  }
+
+  componentDidMount() {
+    const { match: { params: { id } } } = this.props;
+
+    APIClient.getAssetById(id).then(item => {
+      this.setState({
+        item,
+        loading: false
+      });
+    });
+  }
+
+  render() {
+    if (this.state.loading) {
+      return <div>Loading . . .</div>;
+    }
+
+    const { item } = this.state;
+    const Asset = typeToComponent[item.type];
+
+    return <Asset {...item} />;
+  }
+}
+
+Page.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired
@@ -11,4 +47,4 @@ Asset.propTypes = {
   }).isRequired
 };
 
-export default Asset;
+export default Page;
