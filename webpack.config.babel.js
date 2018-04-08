@@ -9,32 +9,32 @@ export default {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
-            options: { minimize: true }
-          }
-        ]
+            loader: 'html-loader',
+            options: { minimize: true },
+          },
+        ],
       },
       {
         exclude: /node_modules/,
         test: /\.(js|jsx)$/,
         use: {
           loader: 'babel-loader',
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: 'body',
-      template: './public/index.html'
-    })
+      template: './public/index.html',
+    }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
-  }
-}
+    extensions: ['.js', '.jsx'],
+  },
+};
