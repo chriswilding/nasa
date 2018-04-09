@@ -1,5 +1,9 @@
-import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
+
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 
 export default {
   devServer: {
@@ -23,8 +27,32 @@ export default {
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       }
     ]
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ],
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: "styles",
+          test: /\.css$/,
+          chunks: "all",
+          enforce: true
+        }
+      }
+    }
   },
   output: {
     filename: "bundle.js",
@@ -35,9 +63,13 @@ export default {
       filename: "index.html",
       inject: "body",
       template: "./public/index.html"
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[chunkhash].css",
+      chunkFilename: "[id].css"
     })
   ],
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: [".css", ".js", ".jsx", ".scss"]
   }
 };
