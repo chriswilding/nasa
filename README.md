@@ -1,6 +1,8 @@
 # NASA Image and Video Library Viewer [![Build Status](https://travis-ci.org/ChrisWilding/nasa.svg?branch=master)](https://travis-ci.org/ChrisWilding/nasa)
 
-A demo React app using the NASA image and video library API
+A demo React app using the NASA image and video library API. 
+
+You can try it out [here](https://cw-nasa.herokuapp.com/search).
 
 ## Prerequisites
 
