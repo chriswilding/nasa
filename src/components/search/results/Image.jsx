@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 const Image = item => (
-  <div>
+  <div className="search-result">
     <Link to={`/asset/${item.id}`}>
-      <img alt={item.title} src={item.thumb} />
+      <img className="search-result__image" alt={item.title} src={item.thumb} />
     </Link>
   </div>
 );

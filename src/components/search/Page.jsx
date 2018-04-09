@@ -23,8 +23,8 @@ class Page extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Search</h1>
+      <div className="search-page">
+        <h1 className="search-page__title">Search</h1>
         <Search search={this.search} />
         {this.state.results.length > 0 && <Results results={this.state.results} />}
       </div>

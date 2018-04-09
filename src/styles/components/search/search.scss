@@ -1,0 +1,29 @@
+.search {
+  &__option {
+    margin: $gel-spacing-unit 2 * $gel-spacing-unit;
+  }
+
+  &__options {
+    margin-bottom: $gel-spacing-unit;
+    margin-top: $gel-spacing-unit;
+    text-align: center;
+  }
+
+  &__query {
+    @include gel-layout-item;
+    @include gel-columns(10/12);
+  }
+
+  &__query-and-submit {
+    @include gel-layout;
+    margin-bottom: $gel-spacing-unit;
+    margin-top: $gel-spacing-unit;
+  }
+
+  &__submit {
+    @include gel-layout-item;
+    @include gel-columns(2/12);
+    text-align: center;
+    padding-left: $gel-spacing-unit;
+  }
+}

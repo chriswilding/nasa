@@ -3221,6 +3221,18 @@ gaze@^1.0.0:
   dependencies:
     globule "^1.0.0"
 
+gel-grid@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gel-grid/-/gel-grid-4.0.0.tgz#3ee013e5920b431e9fd37858a0060fa6e39f6334"
+  dependencies:
+    gel-sass-tools "^1.0.0"
+
+gel-sass-tools@^1.0.0, gel-sass-tools@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/gel-sass-tools/-/gel-sass-tools-1.2.1.tgz#bb54277bd49a09da04673107fdd2ad9c0dcfeaa5"
+  dependencies:
+    sass-mq "^3.2.3"
+
 generate-function@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/generate-function/-/generate-function-2.0.0.tgz#6858fe7c0969b7d4e9093337647ac79f60dfbe74"
@@ -7197,6 +7209,14 @@ sass-loader@^6.0.7:
     lodash.tail "^4.1.1"
     neo-async "^2.5.0"
     pify "^3.0.0"
+
+sass-mq@^3.2.3:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/sass-mq/-/sass-mq-3.3.2.tgz#3472e04c31a432bcd55b3b604edc72ae9a4def1a"
+
+sass-mq@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/sass-mq/-/sass-mq-4.0.2.tgz#aa8f1609a074bf4f5e5e93bdff31def993cc1ee1"
 
 sax@^1.2.4, sax@~1.2.1:
   version "1.2.4"

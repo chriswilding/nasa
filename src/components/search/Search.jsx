@@ -31,40 +31,44 @@ class Search extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleOnSubmit} role="search">
-        <fieldset>
-          <input
-            id="query"
-            aria-label="Search for images and audio from NASA"
-            name="query"
-            onChange={this.handleOnChange}
-            placeholder="Moon"
-            type="search"
-          />
-          <input type="submit" value="Search" />
-          <br />
-          <label htmlFor="images">
-            Images
+      <div className="search">
+        <form onSubmit={this.handleOnSubmit} role="search">
+          <div className="search__query-and-submit">
             <input
-              id="images"
-              checked={this.state.images}
-              name="images"
+              id="query"
+              aria-label="Search for images and audio from NASA"
+              className="search__query"
+              name="query"
               onChange={this.handleOnChange}
-              type="checkbox"
+              placeholder="Moon"
+              type="search"
             />
-          </label>
-          <label htmlFor="audio">
-            Audio
-            <input
-              id="audio"
-              checked={this.state.audio}
-              name="audio"
-              onChange={this.handleOnChange}
-              type="checkbox"
-            />
-          </label>
-        </fieldset>
-      </form>
+            <input className=" " type="submit" value="Search" />
+          </div>
+          <div className="search__options">
+            <label className="search__option" htmlFor="images">
+              Images
+              <input
+                id="images"
+                checked={this.state.images}
+                name="images"
+                onChange={this.handleOnChange}
+                type="checkbox"
+              />
+            </label>
+            <label className="search__option" htmlFor="audio">
+              Audio
+              <input
+                id="audio"
+                checked={this.state.audio}
+                name="audio"
+                onChange={this.handleOnChange}
+                type="checkbox"
+              />
+            </label>
+          </div>
+        </form>
+      </div>
     );
   }
 }
