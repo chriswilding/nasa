@@ -17,7 +17,7 @@ const Results = ({ results }) => {
     return <ResultComponent key={item.id} {...item} />;
   });
 
-  return <div>{items}</div>;
+  return <div className="search-results">{items}</div>;
 };
 
 Results.propTypes = {

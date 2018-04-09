@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Image = ({ description, href, title }) => (
-  <div>
-    <h1>{title}</h1>
-    <p>{description}</p>
-    <img alt="" src={href} />
+  <div className="asset-image">
+    <h1 className="asset-image__title">{title}</h1>
+    <p className="asset-image__description">{description}</p>
+    <img className="asset-image__image" alt="" src={href} />
   </div>
 );
 

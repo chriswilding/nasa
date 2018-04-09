@@ -1,0 +1,14 @@
+.search-result {
+  @include mq($from: gel-bp-m) {
+    @include gel-layout-item;
+    @include gel-columns(1/4);
+  }
+
+  @include mq($from: gel-bp-l) {
+    @include gel-columns(1/6);
+  }
+
+  &__image {
+    max-width: 100%;
+  }
+}

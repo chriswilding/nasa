@@ -1,3 +1,14 @@
-h1 {
-  font-size: 100px;
+@import 'node_modules/gel-sass-tools/sass-tools';
+@import 'node_modules/sass-mq/mq';
+@import 'node_modules/gel-grid/grid';
+
+@import './components/assets/image';
+
+@import './components/search/page';
+@import './components/search/results/result';
+@import './components/search/results/results';
+@import './components/search/search';
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }

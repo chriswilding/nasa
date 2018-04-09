@@ -1,5 +1,5 @@
 import React from "react";
 
-const Audio = item => <div>{item.id}</div>;
+const Audio = item => <div className="search-result">{item.id}</div>;
 
 export default Audio;

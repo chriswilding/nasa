@@ -1,0 +1,8 @@
+.search-page {
+  @include gel-wrap;
+
+  &__title {
+    text-align: center;
+    font-size: 8 * $gel-spacing-unit;
+  }
+}
