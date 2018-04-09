@@ -36,7 +36,7 @@ Project is running at http://localhost:8080/
 
 ```sh
 $ docker build -t nasa .
-$ docker run --name nasa -d -p 8080:80 nasa
+$ docker run --name nasa -d -p 8080:80 -e PORT=80 nasa
 ```
 
 Project is running at http://localhost:8080/

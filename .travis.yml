@@ -1,2 +1,15 @@
 language: node_js
 cache: yarn
+addons:
+  apt:
+    packages:
+      - docker-ce
+services:
+  - docker
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" -a "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    docker build -t cw-nasa .;
+    docker login --username=_ --password="$DOCKER_PASSWORD" registry.heroku.com;
+    docker tag cw-nasa registry.heroku.com/cw-nasa/web;
+    docker push registry.heroku.com/cw-nasa/web;
+    fi
