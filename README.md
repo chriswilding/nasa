@@ -121,11 +121,15 @@ The UX and visual design could be improved significantly.
 
 The application currently does not use a state container, such as redux. This could improve the
 application performance and server load. For example, going from search through to the asset page,
-the asset response does not include the title and description. This means on load of the asset page
-the app has to be request both the asset information and the image URLs from the API resulting in
+the asset API response does not include the title and description. This means on load of the asset page
+the app has to request both the asset information and the image URLs from the API resulting in
 two calls. While this would always be required for users navigating directly to the assets page,
 when linking through from the search page the title and description could be retrieved from the
 redux store instead.
+
+The API client / service does not currently have any error handling mechanism in place. For a 
+production application I would expect it to handle any errors in the API response and display
+or retry the request as appropriate.
 
 There are a few presentational components in the project. As they are only presentational they could
 be tested using snapshot testing. Storybook is a really useful tool, allow you to both setup example
