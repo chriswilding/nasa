@@ -6,10 +6,11 @@ addons:
       - docker-ce
 services:
   - docker
-after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" -a "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    docker build -t cw-nasa .;
-    docker login --username=_ --password="$DOCKER_PASSWORD" registry.heroku.com;
-    docker tag cw-nasa registry.heroku.com/cw-nasa/web;
-    docker push registry.heroku.com/cw-nasa/web;
-    fi
+deploy:
+  on: master
+  provider: script
+  script:
+    - docker build -t cw-nasa .;
+    - echo "$DOCKER_PASSWORD" | docker login --username="$DOCKER_USERNAME" --password-stdin registry.heroku.com;
+    - docker tag cw-nasa registry.heroku.com/cw-nasa/web;
+    - docker push registry.heroku.com/cw-nasa/web;
