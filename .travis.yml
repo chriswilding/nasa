@@ -9,4 +9,4 @@ services:
 deploy:
   on: master
   provider: script
-  script: sh deploy
+  script: sh deploy.sh
