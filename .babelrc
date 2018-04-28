@@ -5,8 +5,9 @@
       "env",
       {
         "targets": {
-          "browsers": ["last 2 versions"]
-        }
+          "browsers": ["last 2 versions", "not <.5%", "not ie 11", "not op_mini all"]
+        },
+        "useBuiltIns": "usage"
       }
     ],
     "react"

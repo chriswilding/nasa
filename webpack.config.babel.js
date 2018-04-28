@@ -9,7 +9,7 @@ export default {
   devServer: {
     historyApiFallback: true
   },
-  entry: ["babel-polyfill", "whatwg-fetch", "./src/index.jsx"],
+  entry: ["whatwg-fetch", "./src/index.jsx"],
   module: {
     rules: [
       {
